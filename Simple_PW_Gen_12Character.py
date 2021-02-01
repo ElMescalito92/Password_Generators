@@ -1,6 +1,7 @@
 import random
 import time
 import string
+import sys
 
 
 def prnt_hold_0(messages):
@@ -23,8 +24,7 @@ def generate_password():
             print(password_string)
             generate_another()
         elif start_generator == "n":
-            prnt_hold_0("Goodbye!")
-            return False
+            exit()
         else:
             prnt_hold_0("Please choose Y or N.")
             generate_password()
@@ -45,11 +45,15 @@ def generate_another():
             print(password_string)
             generate_another()
         elif restart_generator == "n":
-            prnt_hold_0("Goodbye!")
-            return False
+            exit()
         else:
             prnt_hold_0("Please choose Y or N.")
             generate_another()
+
+
+def exit():
+    prnt_hold_0("\nGoodbye!\n")
+    sys.exit()
 
 
 generate_password()
