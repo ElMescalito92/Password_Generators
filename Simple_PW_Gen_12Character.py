@@ -9,46 +9,42 @@ def prnt_hold_0(messages):
     time.sleep(1)
 
 
-def generate_password():
-    password = []
+def create_password():
+    password = ["\n"]
+    while len(password) < 12:
+        password_character = random.choice(string.ascii_letters +
+                                           string.digits +
+                                           string.punctuation)
+        password.append(password_character)
+    password_string = ''.join(str(e) for e in password)
+    print(password_string)
+    repeat_generator()
+
+
+def start_generator():
     while True:
-        start_generator = input("Generate a password? (Y/N):\n").lower()
+        start_generator = input("\nGenerate a password? (Y/N):\n").lower()
         if start_generator == "y":
-            # create PW
-            while len(password) < 12:
-                password_character = random.choice(string.ascii_letters +
-                                                   string.digits +
-                                                   string.punctuation)
-                password.append(password_character)
-            password_string = ''.join(str(e) for e in password)
-            print(password_string)
-            generate_another()
+            # create PW-Function
+            create_password()
         elif start_generator == "n":
             exit()
         else:
             prnt_hold_0("Please choose Y or N.")
-            generate_password()
+            start_generator()
 
 
-def generate_another():
-    another_password = []
+def repeat_generator():
     while True:
-        restart_generator = input("Generate again? (Y/N):\n").lower()
+        restart_generator = input("\nGenerate again? (Y/N):\n").lower()
         if restart_generator == "y":
-            # create PW
-            while len(another_password) < 12:
-                password_character = random.choice(string.ascii_letters +
-                                                   string.digits +
-                                                   string.punctuation)
-                another_password.append(password_character)
-            password_string = ''.join(str(e) for e in another_password)
-            print(password_string)
-            generate_another()
+            # create PW-function
+            create_password()
         elif restart_generator == "n":
             exit()
         else:
-            prnt_hold_0("Please choose Y or N.")
-            generate_another()
+            prnt_hold_0("\nPlease choose Y or N.")
+            repeat_generator()
 
 
 def exit():
@@ -56,4 +52,4 @@ def exit():
     sys.exit()
 
 
-generate_password()
+start_generator()
