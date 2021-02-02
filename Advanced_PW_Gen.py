@@ -9,7 +9,7 @@ def prnt_hold(n, messages):
     time.sleep(n)
 
 
-#Start Generator/Welcome Screen
+# Start Generator/Welcome Screen
 def start_generator():
     pass_len = []
     character_select = []
@@ -18,29 +18,34 @@ def start_generator():
     password_length(character_select, pass_len, password)
 
 
-#PW-Length Function
+# PW-Length Function
 def password_length(character_select, pass_len, password):
     pass_len = input("\nPlease enter desired password length:\n")
     if int(pass_len) >= 12 and int(pass_len) <= 64:
-        #print(pass_len)
-        #Send value to Choose Character Function
-        #prnt_hold(1, "\nYour password will be " + pass_len + " characters long.")
+        # print(pass_len)
+        # Send value to Choose Character Function
+        # prnt_hold(1, "\nYour password will be " + pass_len + "
+        # characters long.")
         password_characters(character_select, pass_len, password)
     else:
-        prnt_hold(2, "\nPassword needs to be at least 12 Characters to be safe!\n"
-                       "Length is limited to 64 Characters at the most!\n")
+        prnt_hold(2, "\nPassword needs to be at least 12 Characters "
+                     "to be safe!\n"
+                     "Length is limited to 64 Characters at the most!\n")
         password_length(character_select, pass_len, password)
 
-#Choose Characters Function
+
+# Choose Characters Function
 def password_characters(character_select, pass_len, password):
-    #Choose
+    # Choose
     prnt_hold(0, "\nPlease select the character contents for your Password.")
-    characters = input("Enter 1: Alphabetical only. (not recommended)\n"
+    characters = input("Enter 1: Alphabetical only. "
+                       "(not recommended)\n"
                        "Enter 2: Alphabetical and numerical. (Safe)\n"
-                       "Enter 3: Alphabetical, numerical and punctuations. (Safest)\n")
+                       "Enter 3: Alphabetical, numerical "
+                       "and punctuations. (Safest)\n")
     if int(characters) <= 3:
         character_select.append(characters)
-        #prnt_hold(1, "\nYou chose option " + characters + ".\n")
+        # prnt_hold(1, "\nYou chose option " + characters + ".\n")
         create_password(character_select, pass_len, password)
     else:
         prnt_hold(2, "\nPlease enter number between 1 and 3.\n")
@@ -48,14 +53,17 @@ def password_characters(character_select, pass_len, password):
 
 
 def create_password(character_select, pass_len, password):
-    #password = ["\n"]
+    # password = ["\n"]
     if "3" in character_select:
         while len(password) < int(pass_len):
-            password_character = random.choice(string.ascii_letters + string.digits + string.punctuation)
+            password_character = random.choice(string.ascii_letters +
+                                               string.digits +
+                                               string.punctuation)
             password.append(password_character)
     elif "2" in character_select:
         while len(password) < int(pass_len):
-            password_character = random.choice(string.ascii_letters + string.digits)
+            password_character = random.choice(string.ascii_letters +
+                                               string.digits)
             password.append(password_character)
     else:
         while len(password) < int(pass_len):
