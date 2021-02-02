@@ -77,6 +77,9 @@ def password_string(character_select, pass_len, password):
 def repeat_generator(character_select, pass_len, password):
     restart_generator = input("\nGenerate again? (Y/N):\n").lower()
     if restart_generator == "y":
+        pass_len = []
+        character_select = []
+        password = [""]
         password_length(character_select, pass_len, password)
     elif restart_generator == "n":
         exit()
