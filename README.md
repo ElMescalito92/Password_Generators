@@ -19,6 +19,11 @@ The goal of this project is exercise, finding different ways of writing a PW-Gen
 - returns/prints only a randmoized 12-Character Password
 - randomizes letters, digits and punctuation
 
+**Advanced_PW_Gen.py:**  
+
+- let's you choose the contents of the password
+- let's you choose the length of the PW
+
 ## Timeline
 
 210201:  
